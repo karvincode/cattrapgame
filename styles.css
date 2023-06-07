@@ -1,0 +1,241 @@
+:root {
+  /* Change this to change the appearance of the hexaons */
+  --hex-width: 60px; 
+  --hex-between: 10px;
+  
+  /* Other hexagon dimentions */
+  --hex-height: calc(var(--hex-width) / 1.73 /* sqrt(3) */);
+  --hex-margin: calc(var(--hex-width) / 2);
+  --hex-border: calc(var(--hex-margin) / 1.73 /* sqrt(3) */);
+  --hex-transition: all .2s ease;
+  
+  /* Colors */
+  --color-hex-default: #97c9ebec;
+  --color-hex-hover:   #416786;
+  --color-angular:     #DD0031;
+  --color-atom:        #66595C;
+  --color-bootstrap:   #563D7C;
+  --color-circleci:    #343434;
+  --color-css:         #1572B6;
+  --color-git:         #F14E32;
+  --color-gulp:        #DA4648;
+  --color-haskell:     #5D4F85;
+  --color-html:        #E34F26;
+  --color-javascript:  #F7DF1E;
+  --color-meteor:      #DE4F4F;
+  --color-python:      #3776AB;
+  --color-rails:       #CC0000;
+  --color-sass:        #CC6699;
+  --color-vuejs:       #4FC08D;
+  --color-webpack:     #8DD6F9;
+}
+
+/* Hexagons */
+.hexagon-container {
+  display: grid;
+  grid-template-columns: var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width);
+  grid-auto-rows: calc(var(--hex-width) - 28.87px/2);
+  grid-gap: var(--hex-between) var(--hex-between);
+  padding-bottom: var(--hex-border);
+}
+.odd-hexagon {
+  align-items: center;
+  background-color: var(--color-hex-default);
+  cursor: pointer;
+  display: flex;
+  fill: white;
+  height: var(--hex-height);
+  justify-content: center;
+  margin: var(--hex-border) 0;
+  position: relative;
+  transition: var(--hex-transition);
+  width: var(--hex-width);
+}
+
+.odd-hexagon::after,
+.odd-hexagon::before {
+  border-left: var(--hex-margin) solid transparent;
+  border-right: var(--hex-margin) solid transparent;
+  content: "";
+  left: 0;
+  position: absolute;
+  transition: var(--hex-transition);
+  width: 0;
+}
+.odd-hexagon::after {
+  border-top: var(--hex-border) solid var(--color-hex-default);
+  top: 100%;
+  width: 0;
+}
+.odd-hexagon::before {
+  border-bottom: var(--hex-border) solid var(--color-hex-default);
+  bottom: 100%;
+}
+  
+.odd-hexagon:hover {
+  background-color: var(--color-hex-hover);
+}
+.odd-hexagon:hover::after,
+.odd-hexagon:hover::before {
+  border-top-color: var(--color-hex-hover);
+  border-bottom-color: var(--color-hex-hover);
+  }
+
+.even-hexagon {
+  align-items: center;
+  background-color: var(--color-hex-default);
+  cursor: pointer;
+  display: flex;
+  fill: white;
+  height: var(--hex-height);
+  justify-content: center;
+  margin: var(--hex-border) 0;
+  position: relative;
+  transition: var(--hex-transition);
+  width: var(--hex-width);
+}
+
+.even-hexagon::after,
+.even-hexagon::before {
+  border-left: var(--hex-margin) solid transparent;
+  border-right: var(--hex-margin) solid transparent;
+  content: "";
+  left: 0;
+  position: absolute;
+  transition: var(--hex-transition);
+  width: 0;
+}
+.even-hexagon::after {
+  border-top: var(--hex-border) solid var(--color-hex-default);
+  top: 100%;
+  width: 0;
+}
+.even-hexagon::before {
+  border-bottom: var(--hex-border) solid var(--color-hex-default);
+  bottom: 100%;
+}
+  
+.even-hexagon:hover {
+  background-color: var(--color-hex-hover);
+}
+.even-hexagon:hover::after,
+.even-hexagon:hover::before {
+  border-top-color: var(--color-hex-hover);
+  border-bottom-color: var(--color-hex-hover);
+  }
+  
+  /*  */
+
+  .even-clicked-hexagon {
+    align-items: center;
+    background-color: var(--color-hex-hover);
+    cursor: pointer;
+    display: flex;
+    fill: white;
+    height: var(--hex-height);
+    justify-content: center;
+    margin: var(--hex-border) 0;
+    position: relative;
+    transition: var(--hex-transition);
+    width: var(--hex-width);
+  }
+  
+  .even-clicked-hexagon::after,
+  .even-clicked-hexagon::before {
+    border-left: var(--hex-margin) solid transparent;
+    border-right: var(--hex-margin) solid transparent;
+    content: "";
+    left: 0;
+    position: absolute;
+    transition: var(--hex-transition);
+    width: 0;
+  }
+  .even-clicked-hexagon::after {
+    border-top: var(--hex-border) solid var(--color-hex-hover);
+    top: 100%;
+    width: 0;
+  }
+  .even-clicked-hexagon::before {
+    border-bottom: var(--hex-border) solid var(--color-hex-hover);
+    bottom: 100%;
+  }
+    
+  .even-clicked-hexagon:hover {
+    background-color: var(--color-hex-hover);
+  }
+  .even-clicked-hexagon:hover::after,
+  .even-clicked-hexagon:hover::before {
+    border-top-color: var(--color-hex-hover);
+    border-bottom-color: var(--color-hex-hover);
+    }
+
+/*  */
+
+  .odd-clicked-hexagon {
+    align-items: center;
+    background-color: var(--color-hex-hover);
+    cursor: pointer;
+    display: flex;
+    fill: white;
+    height: var(--hex-height);
+    justify-content: center;
+    margin: var(--hex-border) 0;
+    position: relative;
+    transition: var(--hex-transition);
+    width: var(--hex-width);
+  }
+  
+  .odd-clicked-hexagon::after,
+  .odd-clicked-hexagon::before {
+    border-left: var(--hex-margin) solid transparent;
+    border-right: var(--hex-margin) solid transparent;
+    content: "";
+    left: 0;
+    position: absolute;
+    transition: var(--hex-transition);
+    width: 0;
+  }
+  .odd-clicked-hexagon::after {
+    border-top: var(--hex-border) solid var(--color-hex-hover);
+    top: 100%;
+    width: 0;
+  }
+  .odd-clicked-hexagon::before {
+    border-bottom: var(--hex-border) solid var(--color-hex-hover);
+    bottom: 100%;
+  }
+    
+  .odd-clicked-hexagon:hover {
+    background-color: var(--color-hex-hover);
+  }
+  .odd-clicked-hexagon:hover::after,
+  .odd-clicked-hexagon:hover::before {
+    border-top-color: var(--color-hex-hover);
+    border-bottom-color: var(--color-hex-hover);
+    }
+  
+
+ 
+.even-clicked-hexagon,
+.even-hexagon
+ {
+  margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
+}
+
+
+.hexagon > svg {
+  height: 75%;
+  transition: var(--hex-transition);
+}
+
+
+
+.resting-cat{
+  background: url('CatSpritesUse.png'); 
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  border: none;
+}
+
+  
